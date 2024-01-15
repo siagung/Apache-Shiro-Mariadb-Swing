@@ -101,7 +101,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>com.mkl.mybatisrep</mainClass>
+                            <mainClass>com.mkl.myshiro.testForm</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
