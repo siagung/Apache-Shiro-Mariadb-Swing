@@ -10,12 +10,12 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.session.Session;
-import org.jasypt.util.password.ConfigurablePasswordEncryptor;
 
 public class Authenticator {
 
@@ -38,10 +38,7 @@ public class Authenticator {
     public Subject authenticate(String username, String pass) {
         Subject currentUser = null;
         try {
-            ConfigurablePasswordEncryptor passwordEncryptor = new ConfigurablePasswordEncryptor();
-            passwordEncryptor.setAlgorithm("SHA-1");
-            passwordEncryptor.setPlainDigest(true);
-            String encryptedPassword = passwordEncryptor.encryptPassword(pass);
+            String encryptedPassword = new Sha256Hash(pass, username, 1024).toBase64();
 
             JdbcRealm realm = new JdbcRealm();
             realm.setAuthenticationQuery(AUTHENTICATION_QUERY);

@@ -5,6 +5,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,6 +32,8 @@ public class testForm extends javax.swing.JFrame {
     public testForm() {
 
         initComponents();
+        
+        
     }
 
     /**
@@ -54,6 +57,7 @@ public class testForm extends javax.swing.JFrame {
         btn05 = new javax.swing.JButton();
         btn06 = new javax.swing.JButton();
         btn07 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shiro Test");
@@ -72,6 +76,11 @@ public class testForm extends javax.swing.JFrame {
 
         btn01.setText("BTN 01");
         btn01.setEnabled(false);
+        btn01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn01ActionPerformed(evt);
+            }
+        });
 
         btn02.setText("BTN 02");
         btn02.setEnabled(false);
@@ -84,6 +93,11 @@ public class testForm extends javax.swing.JFrame {
 
         btn05.setText("BTN 05");
         btn05.setEnabled(false);
+        btn05.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn05ActionPerformed(evt);
+            }
+        });
 
         btn06.setText("BTN 06");
         btn06.setEnabled(false);
@@ -91,37 +105,49 @@ public class testForm extends javax.swing.JFrame {
         btn07.setText("BTN 07");
         btn07.setEnabled(false);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn01)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn02)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn03)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn04)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn05)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn06)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn07)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn01)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn02)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn03)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn04)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn05)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn06)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn07)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+                            .addComponent(txtUsername)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
-                    .addComponent(txtUsername))
+                        .addComponent(jButton1)
+                        .addGap(492, 492, 492)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -146,7 +172,9 @@ public class testForm extends javax.swing.JFrame {
                     .addComponent(btn05)
                     .addComponent(btn06)
                     .addComponent(btn07))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,8 +201,8 @@ public class testForm extends javax.swing.JFrame {
 
                 System.out.println("Connected : " + attribute);
                 btnLogin.setText("Logout");
-                txtUsername.setEnabled(false);
-                txtPassword.setEnabled(false);
+                //txtUsername.setEnabled(false);
+                //txtPassword.setEnabled(false);
                 JOptionPane.showMessageDialog(rootPane, "Login Success!!!");
                 getCurrentUser();
             } else {
@@ -197,6 +225,18 @@ public class testForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Logout Success!!!");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btn01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn01ActionPerformed
+        System.out.println(new Sha256Hash(txtPassword.getText(), txtUsername.getText(), 1024).toBase64());
+    }//GEN-LAST:event_btn01ActionPerformed
+
+    private void btn05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn05ActionPerformed
+          System.out.println(new Sha256Hash(txtPassword.getText(), txtUsername.getText(), 1024).toBase64());
+    }//GEN-LAST:event_btn05ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         System.out.println(new Sha256Hash(txtPassword.getText(), txtUsername.getText(), 1024).toBase64());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void getCurrentUser() {
         currentUser = SecurityUtils.getSubject();
@@ -342,6 +382,7 @@ public class testForm extends javax.swing.JFrame {
     private javax.swing.JButton btn06;
     private javax.swing.JButton btn07;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtPassword;
