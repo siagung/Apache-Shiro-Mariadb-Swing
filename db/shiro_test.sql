@@ -11,7 +11,7 @@
  Target Server Version : 100430 (10.4.30-MariaDB-log)
  File Encoding         : 65001
 
- Date: 15/01/2024 20:44:38
+ Date: 16/01/2024 00:23:13
 */
 
 SET NAMES utf8mb4;
@@ -85,12 +85,12 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 1, '127.0.0.1', 'administrator', 'yuNVthW2ExPnotQtDGUPcF3D2U4=', '', 'admin@admin.com', '0', '', NULL, NULL, NULL, 1268889823, 1447697531, 1, 'Admin', 'Admin', 'ADMIN', '0', 'MDN-POINT');
-INSERT INTO `users` VALUES (2, 1, '127.0.0.1', 'admin', 'yuNVthW2ExPnotQtDGUPcF3D2U4=', NULL, 'auth401@gmail.com', '3042403_20130317060304.jpg', NULL, NULL, NULL, NULL, 1408809661, 1447041464, 1, 'Agung', 'Susanto', '0', '222', 'BRI-MDN-PTR');
-INSERT INTO `users` VALUES (6, 2, '127.0.0.1', 'rangga', 'yuNVthW2ExPnotQtDGUPcF3D2U4=', NULL, 'rangga@praditya.com', '', NULL, NULL, NULL, NULL, 1419754982, 1419754982, 1, 'rangga', 'praditya', '', '', 'MDN-POINT');
-INSERT INTO `users` VALUES (7, 2, '127.0.0.1', 'fatih', 'yuNVthW2ExPnotQtDGUPcF3D2U4=', NULL, 'fatih@abiyasa.com', '', NULL, NULL, NULL, NULL, 1419755120, 1419755120, 1, 'Fatih', 'Abiyasa', '', '111111', 'MDN-POINT');
-INSERT INTO `users` VALUES (8, 3, '127.0.0.1', 'bima', 'yuNVthW2ExPnotQtDGUPcF3D2U4=', NULL, 'bima@sena.com', '', NULL, NULL, NULL, NULL, 1419755249, 1447474837, 1, 'Bima', 'Sena', '', '', 'MDN-POINT');
-INSERT INTO `users` VALUES (9, 3, '127.0.0.1', 'dina', 'yuNVthW2ExPnotQtDGUPcF3D2U4=', NULL, 'dina@wulansari.com', '', NULL, NULL, NULL, NULL, 1419755362, 1419755362, 1, 'dina', 'wulansari', '', '', 'MDN-POINT');
-INSERT INTO `users` VALUES (13, 2, '127.0.0.1', 'agung', 'yuNVthW2ExPnotQtDGUPcF3D2U4=', NULL, 'agung@gmail.com', '', NULL, NULL, NULL, NULL, 1447474416, 1447697458, 1, 'Danang', 'Junaedi', NULL, '91919', 'MDN-POINT');
+INSERT INTO `users` VALUES (1, 1, '127.0.0.1', 'administrator', 't8Vy/MSa4VUUXres1f+rOb1fMfHJ0okkhamsY5wYuOk=', '', 'admin@admin.com', '0', '', NULL, NULL, NULL, 1268889823, 1447697531, 1, 'Admin', 'Admin', 'ADMIN', '0', 'MDN-POINT');
+INSERT INTO `users` VALUES (2, 1, '127.0.0.1', 'admin', '5ZJ5tdQr2DmM2IY4+s1V5nyu65x0GOtOrPsqi/hYRh0=', NULL, 'auth401@gmail.com', '3042403_20130317060304.jpg', NULL, NULL, NULL, NULL, 1408809661, 1447041464, 1, 'Agung', 'Susanto', '0', '222', 'BRI-MDN-PTR');
+INSERT INTO `users` VALUES (6, 2, '127.0.0.1', 'rangga', 'xsuapII00VYg6+hcdH7nKJozk7TRw2iR2FDdfqmikDI=', NULL, 'rangga@praditya.com', '', NULL, NULL, NULL, NULL, 1419754982, 1419754982, 1, 'rangga', 'praditya', '', '', 'MDN-POINT');
+INSERT INTO `users` VALUES (7, 2, '127.0.0.1', 'fatih', 'dThf6Y3qfYlBfq1cRUUzwirIS89QXogCZzUblhnrqkM=', NULL, 'fatih@abiyasa.com', '', NULL, NULL, NULL, NULL, 1419755120, 1419755120, 1, 'Fatih', 'Abiyasa', '', '111111', 'MDN-POINT');
+INSERT INTO `users` VALUES (8, 3, '127.0.0.1', 'bima', 'ivWbHIh7dutYWnuJXRvQC7POXDGsSKQXgTvLKJxKuuI=', NULL, 'bima@sena.com', '', NULL, NULL, NULL, NULL, 1419755249, 1447474837, 1, 'Bima', 'Sena', '', '', 'MDN-POINT');
+INSERT INTO `users` VALUES (9, 3, '127.0.0.1', 'dina', 'ehQDOtKVX+yMpWHuNotE0TapEMnoYMNYKTX1f9SdL7U=', NULL, 'dina@wulansari.com', '', NULL, NULL, NULL, NULL, 1419755362, 1419755362, 1, 'dina', 'wulansari', '', '', 'MDN-POINT');
+INSERT INTO `users` VALUES (13, 2, '127.0.0.1', 'agung', 'F/4yOE3xgtBSkl/ghls0Jne+661Ei3/rGFPg0obL6po=', NULL, 'agung@gmail.com', '', NULL, NULL, NULL, NULL, 1447474416, 1447697458, 1, 'Danang', 'Junaedi', NULL, '91919', 'MDN-POINT');
 
 SET FOREIGN_KEY_CHECKS = 1;
